@@ -498,11 +498,12 @@ int edi_probe_ene(struct flashctx *flash)
 	edi_read(flash, ENE_EC_HWVERSION, &hwversion);
 
 	probe = edi_chip_probe(flash, &ene_kb9012);
-	if (!probe)
-		return 0;
 
-	if (!probe)
-		probe = edi_chip_probe(flash, &ene_kb9542);
+        if (!probe)
+                probe = edi_chip_probe(flash, &ene_kb9542);
+
+        if (!probe)
+		return 0;
 
 	rc = edi_8051_reset(flash);
 	if (rc < 0) {
