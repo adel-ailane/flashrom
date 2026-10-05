@@ -19,6 +19,11 @@ static const struct ene_chip ene_kb9012 = {
 	.ediid = ENE_KB9012_EDIID,
 };
 
+static const struct ene_chip ene_kb9542 = {
+	.hwversion = ENE_KB9542_HWVERSION,
+	.ediid = ENE_KB9542_EDIID,
+};
+
 static void edi_write_cmd(unsigned char *cmd, unsigned short address, unsigned char data)
 {
 	cmd[0] = EDI_WRITE; /* EDI write command. */
@@ -475,7 +480,7 @@ static int edi_shutdown(void *data)
 	return 0;
 }
 
-int edi_probe_kb9012(struct flashctx *flash)
+int edi_probe_ene(struct flashctx *flash)
 {
 	int probe;
 	int rc;
@@ -495,6 +500,9 @@ int edi_probe_kb9012(struct flashctx *flash)
 	probe = edi_chip_probe(flash, &ene_kb9012);
 	if (!probe)
 		return 0;
+
+	if (!probe)
+		probe = edi_chip_probe(flash, &ene_kb9542);
 
 	rc = edi_8051_reset(flash);
 	if (rc < 0) {

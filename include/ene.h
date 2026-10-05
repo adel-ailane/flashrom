@@ -29,8 +29,32 @@
 #define ENE_EC_HWVERSION		0xff00
 #define ENE_EC_EDIID			0xff24
 
+#define ENE_KB9010_HWVERSION		0xc3
+#define ENE_KB9010_EDIID		0x04
+
 #define ENE_KB9012_HWVERSION		0xc3
 #define ENE_KB9012_EDIID		0x04
+
+#define ENE_KB9016_HWVERSION		0xc3
+#define ENE_KB9016_EDIID		0x04
+
+#define ENE_KB9018_HWVERSION		0xc3
+#define ENE_KB9018_EDIID		0x04
+
+#define ENE_KB9022_HWVERSION		0xb1
+#define ENE_KB9022_EDIID		0x07
+
+#define ENE_KB9028_HWVERSION		0xc0
+#define ENE_KB9028_EDIID		0x07
+
+#define ENE_KB9052B_HWVERSION		0xb0
+#define ENE_KB9052B_EDIID		0x0b
+
+#define ENE_KB9052D_HWVERSION		0xd0
+#define ENE_KB9052D_EDIID		0x0b
+
+#define ENE_KB9542_HWVERSION            0xa0
+#define ENE_KB9542_EDIID                0x07
 
 struct ene_chip {
 	unsigned char hwversion;

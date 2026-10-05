@@ -134,7 +134,7 @@ enum write_granularity {
 #define FEATURE_4BA_EAR7	(FEATURE_4BA_ENTER_EAR7 | FEATURE_4BA_EAR_C5C8 | FEATURE_4BA_NATIVE)
 /*
  * Most flash chips are erased to ones and programmed to zeros. However, some
- * other flash chips, such as the ENE KB9012 internal flash, work the opposite way.
+ * other flash chips, such as the ENE KB9XXX internal flash, work the opposite way.
  */
 #define FEATURE_ERASED_ZERO	(1 << 18)
 /*
@@ -254,7 +254,7 @@ enum probe_func {
 	PROBE_JEDEC = 1,
 	PROBE_JEDEC_29GL,
 	PROBE_OPAQUE,
-	PROBE_EDI_KB9012,
+	PROBE_EDI_ENE,
 	PROBE_AT82802AB,
 	PROBE_W29EE011,
 	PROBE_EN29LV640B,

@@ -1216,7 +1216,7 @@ static probe_func_t *lookup_probe_func_ptr(const struct flashchip *chip)
 		case PROBE_JEDEC: return &probe_jedec;
 		case PROBE_JEDEC_29GL: return &probe_jedec_29gl;
 		case PROBE_OPAQUE: return &probe_opaque;
-		case PROBE_EDI_KB9012: return &edi_probe_kb9012;
+		case PROBE_EDI_ENE: return &edi_probe_ene;
 		case PROBE_AT82802AB: return &probe_82802ab;
 		case PROBE_W29EE011: return &probe_w29ee011;
 		case PROBE_EN29LV640B: return &probe_en29lv640b;
