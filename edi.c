@@ -499,10 +499,10 @@ int edi_probe_ene(struct flashctx *flash)
 
 	probe = edi_chip_probe(flash, &ene_kb9012);
 
-	if (!probe)
-		probe = edi_chip_probe(flash, &ene_kb9542);
+        if (!probe)
+                probe = edi_chip_probe(flash, &ene_kb9542);
 
-	if (!probe)
+        if (!probe)
 		return 0;
 
 	rc = edi_8051_reset(flash);
