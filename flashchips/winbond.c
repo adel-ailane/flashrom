@@ -6,6 +6,7 @@
  * SPDX-FileCopyrightText: 2006-2009 Carl-Daniel Hailfinger
  * SPDX-FileCopyrightText: 2009 Sean Nelson <audiohacked@gmail.com>
  * SPDX-FileCopyrightText: 2025 Antonio Vázquez Blanco <antoniovazquezblanco@gmail.com>
+ * SPDX-FileCopyrightText: 2026 Abdelkader Boudih <coreboot@seuros.com>
  */
 
 	{
@@ -23,10 +24,10 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {64 * 1024, 32} },
+				.eraseblocks = { {64 * KiB, 32} },
 				.block_erase = SPI_BLOCK_ERASE_D8,
 			}, {
-				.eraseblocks = { {2048 * 1024, 1} },
+				.eraseblocks = { {2 * MiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_C7,
 			}
 		},
@@ -52,10 +53,10 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {64 * 1024, 64} },
+				.eraseblocks = { {64 * KiB, 64} },
 				.block_erase = SPI_BLOCK_ERASE_D8,
 			}, {
-				.eraseblocks = { {4096 * 1024, 1} },
+				.eraseblocks = { {4 * MiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_C7,
 			}
 		},
@@ -81,10 +82,10 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {64 * 1024, 16} },
+				.eraseblocks = { {64 * KiB, 16} },
 				.block_erase = SPI_BLOCK_ERASE_D8,
 			}, {
-				.eraseblocks = { {1024 * 1024, 1} },
+				.eraseblocks = { {1 * MiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_C7,
 			}
 		},
@@ -110,25 +111,7 @@
 		.tested		= TEST_OK_PREWB,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 4096} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 512} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 256} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {16 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {16 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(16384),
 		.printlock	= SPI_PRETTYPRINT_STATUS_REGISTER_SRWD_SEC_TB_BP2_WELWIP,
 		.unlock		= SPI_DISABLE_BLOCKPROTECT,
 		.write		= SPI_CHIP_WRITE256,
@@ -159,25 +142,7 @@
 		.tested		= TEST_OK_PREWB,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 4096} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 512} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 256} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {16 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {16 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(16384),
 		.printlock	= SPI_PRETTYPRINT_STATUS_REGISTER_SRWD_SEC_TB_BP2_WELWIP,
 		.unlock		= SPI_DISABLE_BLOCKPROTECT,
 		.write		= SPI_CHIP_WRITE256,
@@ -209,25 +174,7 @@
 		.tested		= TEST_OK_PREWB,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 4096} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 512} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 256} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {16 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {16 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(16384),
 		.printlock	= SPI_PRETTYPRINT_STATUS_REGISTER_SRWD_SEC_TB_BP2_WELWIP,
 		.unlock		= SPI_DISABLE_BLOCKPROTECT,
 		.write		= SPI_CHIP_WRITE256,
@@ -257,25 +204,7 @@
 		.tested		= TEST_OK_PREWB,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 4096} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 512} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 256} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {16 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {16 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(16384),
 		.printlock      = SPI_PRETTYPRINT_STATUS_REGISTER_SRWD_SEC_TB_BP2_WELWIP,
 		.unlock		= SPI_DISABLE_BLOCKPROTECT,
 		.write		= SPI_CHIP_WRITE256,
@@ -308,25 +237,7 @@
 		.tested		= TEST_OK_PREW,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 512} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 64} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 32} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {2 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {2 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(2048),
 		.printlock	= SPI_PRETTYPRINT_STATUS_REGISTER_SRWD_SEC_TB_BP2_WELWIP,
 		.unlock		= SPI_DISABLE_BLOCKPROTECT,
 		.write		= SPI_CHIP_WRITE256,
@@ -359,25 +270,7 @@
 		.tested		= TEST_OK_PREWB,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 512} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 64} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 32} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {2 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {2 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(2048),
 		.printlock	= SPI_PRETTYPRINT_STATUS_REGISTER_SRWD_SEC_TB_BP2_WELWIP,
 		.unlock		= SPI_DISABLE_BLOCKPROTECT,
 		.write		= SPI_CHIP_WRITE256,
@@ -409,25 +302,7 @@
 		.tested		= TEST_UNTESTED,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 512} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 64} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 32} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {2 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {2 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(2048),
 		.printlock	= SPI_PRETTYPRINT_STATUS_REGISTER_PLAIN, /* TODO: improve */
 		.unlock		= SPI_DISABLE_BLOCKPROTECT,
 		.write		= SPI_CHIP_WRITE256,
@@ -448,25 +323,7 @@
 		.tested		= TEST_UNTESTED,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 64} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 8} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 4} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {256 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {256 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(256),
 		.printlock	= SPI_PRETTYPRINT_STATUS_REGISTER_PLAIN, /* TODO: improve */
 		.unlock		= SPI_DISABLE_BLOCKPROTECT,
 		.write		= SPI_CHIP_WRITE256,
@@ -490,25 +347,7 @@
 		.tested		= TEST_OK_PREW,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 8192} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 1024} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 512} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {32 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {32 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(32768),
 		.printlock	= SPI_PRETTYPRINT_STATUS_REGISTER_BP3_SRWD,
 		.unlock		= SPI_DISABLE_BLOCKPROTECT,
 		.write		= SPI_CHIP_WRITE256,
@@ -542,25 +381,25 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {4 * 1024, 8192} },
+				.eraseblocks = { {4 * KiB, 8192} },
 				.block_erase = SPI_BLOCK_ERASE_21,
 			}, {
-				.eraseblocks = { {4 * 1024, 8192} },
+				.eraseblocks = { {4 * KiB, 8192} },
 				.block_erase = SPI_BLOCK_ERASE_20,
 			}, {
-				.eraseblocks = { {32 * 1024, 1024} },
+				.eraseblocks = { {32 * KiB, 1024} },
 				.block_erase = SPI_BLOCK_ERASE_52,
 			}, {
-				.eraseblocks = { {64 * 1024, 512} },
+				.eraseblocks = { {64 * KiB, 512} },
 				.block_erase = SPI_BLOCK_ERASE_DC,
 			}, {
-				.eraseblocks = { {64 * 1024, 512} },
+				.eraseblocks = { {64 * KiB, 512} },
 				.block_erase = SPI_BLOCK_ERASE_D8,
 			}, {
-				.eraseblocks = { {32 * 1024 * 1024, 1} },
+				.eraseblocks = { {32 * MiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_60,
 			}, {
-				.eraseblocks = { {32 * 1024 * 1024, 1} },
+				.eraseblocks = { {32 * MiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_C7,
 			}
 		},
@@ -597,25 +436,25 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {4 * 1024, 8192} },
+				.eraseblocks = { {4 * KiB, 8192} },
 				.block_erase = SPI_BLOCK_ERASE_21,
 			}, {
-				.eraseblocks = { {4 * 1024, 8192} },
+				.eraseblocks = { {4 * KiB, 8192} },
 				.block_erase = SPI_BLOCK_ERASE_20,
 			}, {
-				.eraseblocks = { {32 * 1024, 1024} },
+				.eraseblocks = { {32 * KiB, 1024} },
 				.block_erase = SPI_BLOCK_ERASE_52,
 			}, {
-				.eraseblocks = { {64 * 1024, 512} },
+				.eraseblocks = { {64 * KiB, 512} },
 				.block_erase = SPI_BLOCK_ERASE_DC,
 			}, {
-				.eraseblocks = { {64 * 1024, 512} },
+				.eraseblocks = { {64 * KiB, 512} },
 				.block_erase = SPI_BLOCK_ERASE_D8,
 			}, {
-				.eraseblocks = { {32 * 1024 * 1024, 1} },
+				.eraseblocks = { {32 * MiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_60,
 			}, {
-				.eraseblocks = { {32 * 1024 * 1024, 1} },
+				.eraseblocks = { {32 * MiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_C7,
 			}
 		},
@@ -641,7 +480,7 @@
 		.bustype	= BUS_SPI,
 		.manufacture_id	= WINBOND_NEX_ID,
 		.model_id	= WINBOND_NEX_W25Q512JV_M,
-		.total_size	= 64 * 1024,
+		.total_size	= 64 * KiB,
 		.page_size	= 256,
 		/* supports SFDP */
 		/* OTP: 1024B total, 256B reserved; read 0x48; write 0x42, erase 0x44, read ID 0x4B */
@@ -652,25 +491,25 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {4 * 1024, 16384} },
+				.eraseblocks = { {4 * KiB, 16384} },
 				.block_erase = SPI_BLOCK_ERASE_21,
 			}, {
-				.eraseblocks = { {4 * 1024, 16384} },
+				.eraseblocks = { {4 * KiB, 16384} },
 				.block_erase = SPI_BLOCK_ERASE_20,
 			}, {
-				.eraseblocks = { {32 * 1024, 2048} },
+				.eraseblocks = { {32 * KiB, 2048} },
 				.block_erase = SPI_BLOCK_ERASE_52,
 			}, {
-				.eraseblocks = { {64 * 1024, 1024} },
+				.eraseblocks = { {64 * KiB, 1024} },
 				.block_erase = SPI_BLOCK_ERASE_DC,
 			}, {
-				.eraseblocks = { {64 * 1024, 1024} },
+				.eraseblocks = { {64 * KiB, 1024} },
 				.block_erase = SPI_BLOCK_ERASE_D8,
 			}, {
-				.eraseblocks = { {64 * 1024 * 1024, 1} },
+				.eraseblocks = { {64 * MiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_60,
 			}, {
-				.eraseblocks = { {64 * 1024 * 1024, 1} },
+				.eraseblocks = { {64 * MiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_C7,
 			}
 		},
@@ -708,25 +547,25 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {4 * 1024, 8192} },
+				.eraseblocks = { {4 * KiB, 8192} },
 				.block_erase = SPI_BLOCK_ERASE_21,
 			}, {
-				.eraseblocks = { {4 * 1024, 8192} },
+				.eraseblocks = { {4 * KiB, 8192} },
 				.block_erase = SPI_BLOCK_ERASE_20,
 			}, {
-				.eraseblocks = { {32 * 1024, 1024} },
+				.eraseblocks = { {32 * KiB, 1024} },
 				.block_erase = SPI_BLOCK_ERASE_52,
 			}, {
-				.eraseblocks = { {64 * 1024, 512} },
+				.eraseblocks = { {64 * KiB, 512} },
 				.block_erase = SPI_BLOCK_ERASE_DC,
 			}, {
-				.eraseblocks = { {64 * 1024, 512} },
+				.eraseblocks = { {64 * KiB, 512} },
 				.block_erase = SPI_BLOCK_ERASE_D8,
 			}, {
-				.eraseblocks = { {32 * 1024 * 1024, 1} },
+				.eraseblocks = { {32 * MiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_60,
 			}, {
-				.eraseblocks = { {32 * 1024 * 1024, 1} },
+				.eraseblocks = { {32 * MiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_C7,
 			}
 		},
@@ -762,25 +601,7 @@
 		.tested		= TEST_OK_PREW,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 8192} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 1024} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 512} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {32 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {32 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(32768),
 		.printlock	= SPI_PRETTYPRINT_STATUS_REGISTER_BP3_SRWD,
 		.unlock		= SPI_DISABLE_BLOCKPROTECT,
 		.write		= SPI_CHIP_WRITE256,
@@ -815,25 +636,25 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {4 * 1024, 16384} },
+				.eraseblocks = { {4 * KiB, 16384} },
 				.block_erase = SPI_BLOCK_ERASE_21,
 			}, {
-				.eraseblocks = { {4 * 1024, 16384} },
+				.eraseblocks = { {4 * KiB, 16384} },
 				.block_erase = SPI_BLOCK_ERASE_20,
 			}, {
-				.eraseblocks = { {32 * 1024, 2048} },
+				.eraseblocks = { {32 * KiB, 2048} },
 				.block_erase = SPI_BLOCK_ERASE_52,
 			}, {
-				.eraseblocks = { {64 * 1024, 1024} },
+				.eraseblocks = { {64 * KiB, 1024} },
 				.block_erase = SPI_BLOCK_ERASE_DC,
 			}, {
-				.eraseblocks = { {64 * 1024, 1024} },
+				.eraseblocks = { {64 * KiB, 1024} },
 				.block_erase = SPI_BLOCK_ERASE_D8,
 			}, {
-				.eraseblocks = { {64 * 1024 * 1024, 1} },
+				.eraseblocks = { {64 * MiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_60,
 			}, {
-				.eraseblocks = { {64 * 1024 * 1024, 1} },
+				.eraseblocks = { {64 * MiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_C7,
 			}
 		},
@@ -862,25 +683,25 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {4 * 1024, 8192} },
+				.eraseblocks = { {4 * KiB, 8192} },
 				.block_erase = SPI_BLOCK_ERASE_21,
 			}, {
-				.eraseblocks = { {4 * 1024, 8192} },
+				.eraseblocks = { {4 * KiB, 8192} },
 				.block_erase = SPI_BLOCK_ERASE_20,
 			}, {
-				.eraseblocks = { {32 * 1024, 1024} },
+				.eraseblocks = { {32 * KiB, 1024} },
 				.block_erase = SPI_BLOCK_ERASE_52,
 			}, {
-				.eraseblocks = { {64 * 1024, 512} },
+				.eraseblocks = { {64 * KiB, 512} },
 				.block_erase = SPI_BLOCK_ERASE_DC,
 			}, {
-				.eraseblocks = { {64 * 1024, 512} },
+				.eraseblocks = { {64 * KiB, 512} },
 				.block_erase = SPI_BLOCK_ERASE_D8,
 			}, {
-				.eraseblocks = { {32 * 1024 * 1024, 1} },
+				.eraseblocks = { {32 * MiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_60,
 			}, {
-				.eraseblocks = { {32 * 1024 * 1024, 1} },
+				.eraseblocks = { {32 * MiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_C7,
 			}
 		},
@@ -915,25 +736,7 @@
 		.tested		= TEST_OK_PREW,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 1024} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 128} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 64} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {4 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {4 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(4096),
 		.printlock	= SPI_PRETTYPRINT_STATUS_REGISTER_SRWD_SEC_TB_BP2_WELWIP,
 		.unlock		= SPI_DISABLE_BLOCKPROTECT,
 		.write		= SPI_CHIP_WRITE256,
@@ -966,25 +769,7 @@
 		.tested		= TEST_OK_PREW,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 1024} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 128} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 64} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {4 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {4 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(4096),
 		.printlock	= SPI_PRETTYPRINT_STATUS_REGISTER_SRWD_SEC_TB_BP2_WELWIP,
 		.unlock		= SPI_DISABLE_BLOCKPROTECT,
 		.write		= SPI_CHIP_WRITE256,
@@ -1018,25 +803,7 @@
 		.tested		= TEST_OK_PREW,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 1024} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 128} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 64} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {4 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {4 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(4096),
 		.printlock	= SPI_PRETTYPRINT_STATUS_REGISTER_SRWD_SEC_TB_BP2_WELWIP,
 		.unlock		= SPI_DISABLE_BLOCKPROTECT,
 		.write		= SPI_CHIP_WRITE256,
@@ -1070,25 +837,7 @@
 		.tested		= TEST_OK_PREW,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 1024} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 128} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 64} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {4 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {4 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(4096),
 		.printlock	= SPI_PRETTYPRINT_STATUS_REGISTER_SRWD_SEC_TB_BP2_WELWIP,
 		.unlock		= SPI_DISABLE_BLOCKPROTECT,
 		.write		= SPI_CHIP_WRITE256,
@@ -1121,25 +870,7 @@
 		.tested		= TEST_OK_PREW,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 1024} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 128} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 64} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {4 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {4 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(4096),
 		.printlock	= SPI_PRETTYPRINT_STATUS_REGISTER_SRWD_SEC_TB_BP2_WELWIP,
 		.unlock		= SPI_DISABLE_BLOCKPROTECT,
 		.write		= SPI_CHIP_WRITE256,
@@ -1172,25 +903,7 @@
 		.tested		= TEST_OK_PREW,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 1024} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 128} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 64} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {4 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {4 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(4096),
 		.printlock	= SPI_PRETTYPRINT_STATUS_REGISTER_SRWD_SEC_TB_BP2_WELWIP,
 		.unlock		= SPI_DISABLE_BLOCKPROTECT,
 		.write		= SPI_CHIP_WRITE256,
@@ -1224,25 +937,7 @@
 		.tested		= TEST_OK_PREW,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 1024} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 128} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 64} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {4 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {4 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(4096),
 		.printlock	= SPI_PRETTYPRINT_STATUS_REGISTER_SRWD_SEC_TB_BP2_WELWIP,
 		.unlock		= SPI_DISABLE_BLOCKPROTECT,
 		.write		= SPI_CHIP_WRITE256,
@@ -1276,25 +971,7 @@
 		.tested		= TEST_OK_PREW,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 1024} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 128} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 64} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {4 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {4 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(4096),
 		.printlock      = SPI_PRETTYPRINT_STATUS_REGISTER_SRWD_SEC_TB_BP2_WELWIP,
 		.unlock		= SPI_DISABLE_BLOCKPROTECT_BP2_SRWD,
 		.write		= SPI_CHIP_WRITE256,
@@ -1327,25 +1004,7 @@
 		.tested		= TEST_OK_PREW,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 128} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 16} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 8} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {512 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {512 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(512),
 		.printlock	= SPI_PRETTYPRINT_STATUS_REGISTER_PLAIN, /* TODO: improve */
 		.unlock		= SPI_DISABLE_BLOCKPROTECT,
 		.write		= SPI_CHIP_WRITE256, /* Multi I/O supported */
@@ -1366,25 +1025,7 @@
 		.tested		= TEST_OK_PREW,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 128} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 16} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 8} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {512 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {512 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(512),
 		.printlock	= SPI_PRETTYPRINT_STATUS_REGISTER_PLAIN, /* TODO: improve */
 		.unlock		= SPI_DISABLE_BLOCKPROTECT,
 		.write		= SPI_CHIP_WRITE256,
@@ -1405,25 +1046,7 @@
 		.tested		= TEST_OK_PREW,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 128} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 16} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 8} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {512 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {512 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(512),
 		.printlock	= SPI_PRETTYPRINT_STATUS_REGISTER_PLAIN, /* TODO: improve */
 		.unlock		= SPI_DISABLE_BLOCKPROTECT,
 		.write		= SPI_CHIP_WRITE256,
@@ -1437,7 +1060,7 @@
 		.bustype	= BUS_SPI,
 		.manufacture_id	= WINBOND_NEX_ID,
 		.model_id	= WINBOND_NEX_W25Q512JV,
-		.total_size	= 64 * 1024,
+		.total_size	= 64 * KiB,
 		.page_size	= 256,
 		.feature_bits	= FEATURE_WRSR_WREN | FEATURE_OTP | FEATURE_4BA,
 		.tested		= TEST_OK_PREW,
@@ -1446,25 +1069,25 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {4 * 1024, 16384} },
+				.eraseblocks = { {4 * KiB, 16384} },
 				.block_erase = SPI_BLOCK_ERASE_21,
 			}, {
-				.eraseblocks = { {4 * 1024, 16384} },
+				.eraseblocks = { {4 * KiB, 16384} },
 				.block_erase = SPI_BLOCK_ERASE_20,
 			}, {
-				.eraseblocks = { {32 * 1024, 2048} },
+				.eraseblocks = { {32 * KiB, 2048} },
 				.block_erase = SPI_BLOCK_ERASE_52,
 			}, {
-				.eraseblocks = { {64 * 1024, 1024} },
+				.eraseblocks = { {64 * KiB, 1024} },
 				.block_erase = SPI_BLOCK_ERASE_DC,
 			}, {
-				.eraseblocks = { {64 * 1024, 1024} },
+				.eraseblocks = { {64 * KiB, 1024} },
 				.block_erase = SPI_BLOCK_ERASE_D8,
 			}, {
-				.eraseblocks = { {64 * 1024 * 1024, 1} },
+				.eraseblocks = { {64 * MiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_60,
 			}, {
-				.eraseblocks = { {64 * 1024 * 1024, 1} },
+				.eraseblocks = { {64 * MiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_C7,
 			}
 		},
@@ -1481,7 +1104,7 @@
 		.bustype	= BUS_SPI,
 		.manufacture_id	= WINBOND_NEX_ID,
 		.model_id	= WINBOND_NEX_W25Q01JV,
-		.total_size	= 128 * 1024,
+		.total_size	= 128 * KiB,
 		.page_size	= 256,
 		.feature_bits	= FEATURE_WRSR_WREN | FEATURE_OTP | FEATURE_4BA,
 		.tested		= TEST_OK_PREW,
@@ -1490,25 +1113,25 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {4 * 1024, 32768} },
+				.eraseblocks = { {4 * KiB, 32768} },
 				.block_erase = SPI_BLOCK_ERASE_21,
 			}, {
-				.eraseblocks = { {4 * 1024, 32768} },
+				.eraseblocks = { {4 * KiB, 32768} },
 				.block_erase = SPI_BLOCK_ERASE_20,
 			}, {
-				.eraseblocks = { {32 * 1024, 4096} },
+				.eraseblocks = { {32 * KiB, 4096} },
 				.block_erase = SPI_BLOCK_ERASE_52,
 			}, {
-				.eraseblocks = { {64 * 1024, 2048} },
+				.eraseblocks = { {64 * KiB, 2048} },
 				.block_erase = SPI_BLOCK_ERASE_DC,
 			}, {
-				.eraseblocks = { {64 * 1024, 2048} },
+				.eraseblocks = { {64 * KiB, 2048} },
 				.block_erase = SPI_BLOCK_ERASE_D8,
 			}, {
-				.eraseblocks = { {128 * 1024 * 1024, 1} },
+				.eraseblocks = { {128 * MiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_60,
 			}, {
-				.eraseblocks = { {128 * 1024 * 1024, 1} },
+				.eraseblocks = { {128 * MiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_C7,
 			}
 		},
@@ -1525,7 +1148,7 @@
 		.bustype        = BUS_SPI,
 		.manufacture_id = WINBOND_NEX_ID,
 		.model_id       = WINBOND_NEX_W25Q512NW_IM,
-		.total_size     = 64 * 1024,
+		.total_size     = 64 * KiB,
 		.page_size      = 256,
 		.feature_bits   = FEATURE_WRSR_WREN | FEATURE_OTP | FEATURE_4BA  | FEATURE_WRSR2
 				  | FEATURE_WRSR3,
@@ -1535,25 +1158,25 @@
 		.block_erasers  =
 		{
 			{
-				.eraseblocks = { {4 * 1024, 16384} },
+				.eraseblocks = { {4 * KiB, 16384} },
 				.block_erase = SPI_BLOCK_ERASE_21,
 			}, {
-				.eraseblocks = { {4 * 1024, 16384} },
+				.eraseblocks = { {4 * KiB, 16384} },
 				.block_erase = SPI_BLOCK_ERASE_20,
 			}, {
-				.eraseblocks = { {32 * 1024, 2048} },
+				.eraseblocks = { {32 * KiB, 2048} },
 				.block_erase = SPI_BLOCK_ERASE_52,
 			}, {
-				.eraseblocks = { {64 * 1024, 1024} },
+				.eraseblocks = { {64 * KiB, 1024} },
 				.block_erase = SPI_BLOCK_ERASE_DC,
 			}, {
-				.eraseblocks = { {64 * 1024, 1024} },
+				.eraseblocks = { {64 * KiB, 1024} },
 				.block_erase = SPI_BLOCK_ERASE_D8,
 			}, {
-				.eraseblocks = { {64 * 1024 * 1024, 1} },
+				.eraseblocks = { {64 * MiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_60,
 			}, {
-				.eraseblocks = { {64 * 1024 * 1024, 1} },
+				.eraseblocks = { {64 * MiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_C7,
 			}
 		},
@@ -1587,25 +1210,7 @@
 		.tested		= TEST_OK_PREWB,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 2048} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 256} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 128} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {8 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {8 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(8192),
 		.printlock	= SPI_PRETTYPRINT_STATUS_REGISTER_SRWD_SEC_TB_BP2_WELWIP,
 		.unlock		= SPI_DISABLE_BLOCKPROTECT,
 		.write		= SPI_CHIP_WRITE256,
@@ -1638,25 +1243,7 @@
 		.tested		= TEST_OK_PREWB,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 2048} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 256} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 128} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {8 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {8 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(8192),
 		.printlock	= SPI_PRETTYPRINT_STATUS_REGISTER_PLAIN, /* TODO: improve */
 		.unlock		= SPI_DISABLE_BLOCKPROTECT,
 		.write		= SPI_CHIP_WRITE256,
@@ -1689,25 +1276,7 @@
 		.tested		= TEST_OK_PREW,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 2048} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 256} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 128} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {8 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {8 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(8192),
 		.printlock	= SPI_PRETTYPRINT_STATUS_REGISTER_BP2_TB_BPL,
 		.unlock		= SPI_DISABLE_BLOCKPROTECT_BP2_SRWD,
 		.write		= SPI_CHIP_WRITE256,
@@ -1729,25 +1298,7 @@
 		.tested		= TEST_OK_PREWB,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 2048} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 256} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 128} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {8 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {8 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(8192),
 		.printlock	= SPI_PRETTYPRINT_STATUS_REGISTER_SRWD_SEC_TB_BP2_WELWIP,
 		.unlock		= SPI_DISABLE_BLOCKPROTECT,
 		.write		= SPI_CHIP_WRITE256,
@@ -1779,25 +1330,7 @@
 		.tested		= TEST_OK_PREW,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 2048} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 256} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 128} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {8 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {8 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(8192),
 		.printlock	= SPI_PRETTYPRINT_STATUS_REGISTER_SRWD_SEC_TB_BP2_WELWIP,
 		.unlock		= SPI_DISABLE_BLOCKPROTECT,
 		.write		= SPI_CHIP_WRITE256,
@@ -1830,25 +1363,7 @@
 		.tested		= TEST_OK_PREWB,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 256} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 32} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 16} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(1024),
 		.printlock	= SPI_PRETTYPRINT_STATUS_REGISTER_SRWD_SEC_TB_BP2_WELWIP,
 		.unlock		= SPI_DISABLE_BLOCKPROTECT,
 		.write		= SPI_CHIP_WRITE256,
@@ -1881,25 +1396,7 @@
 		.tested		= TEST_OK_PREW,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 256} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 32} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 16} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(1024),
 		.printlock	= SPI_PRETTYPRINT_STATUS_REGISTER_SRWD_SEC_TB_BP2_WELWIP,
 		.unlock		= SPI_DISABLE_BLOCKPROTECT,
 		.write		= SPI_CHIP_WRITE256,
@@ -1930,25 +1427,7 @@
 		.tested		= TEST_OK_PREW,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 256} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 32} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 16} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {1 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {1 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(1024),
 		.printlock	= SPI_PRETTYPRINT_STATUS_REGISTER_PLAIN, /* TODO: improve */
 		.unlock		= SPI_DISABLE_BLOCKPROTECT,
 		.write		= SPI_CHIP_WRITE256,
@@ -1969,25 +1448,7 @@
 		.tested		= TEST_OK_PREW,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 256} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 32} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 16} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {1 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {1 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(1024),
 		.printlock	= SPI_PRETTYPRINT_STATUS_REGISTER_PLAIN, /* TODO: improve */
 		.unlock		= SPI_DISABLE_BLOCKPROTECT,
 		.write		= SPI_CHIP_WRITE256,
@@ -2010,13 +1471,13 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {4 * 1024, 16} },
+				.eraseblocks = { {4 * KiB, 16} },
 				.block_erase = SPI_BLOCK_ERASE_20,
 			}, {
-				.eraseblocks = { {32 * 1024, 2} },
+				.eraseblocks = { {32 * KiB, 2} },
 				.block_erase = SPI_BLOCK_ERASE_52,
 			}, {
-				.eraseblocks = { {64 * 1024, 1} },
+				.eraseblocks = { {64 * KiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_D8,
 			}
 		},
@@ -2050,13 +1511,13 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {4 * 1024, 32} },
+				.eraseblocks = { {4 * KiB, 32} },
 				.block_erase = SPI_BLOCK_ERASE_20,
 			}, {
-				.eraseblocks = { {64 * 1024, 2} },
+				.eraseblocks = { {64 * KiB, 2} },
 				.block_erase = SPI_BLOCK_ERASE_D8,
 			}, {
-				.eraseblocks = { {128 * 1024, 1} },
+				.eraseblocks = { {128 * KiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_C7,
 			}
 		},
@@ -2086,25 +1547,7 @@
 		.tested		= TEST_OK_PREW,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 512} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 64} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 32} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {2 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {2 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(2048),
 		.printlock	= SPI_PRETTYPRINT_STATUS_REGISTER_PLAIN, /* TODO: improve */
 		.unlock		= SPI_DISABLE_BLOCKPROTECT,
 		.write		= SPI_CHIP_WRITE256,
@@ -2134,13 +1577,13 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {4 * 1024, 64} },
+				.eraseblocks = { {4 * KiB, 64} },
 				.block_erase = SPI_BLOCK_ERASE_20,
 			}, {
-				.eraseblocks = { {64 * 1024, 4} },
+				.eraseblocks = { {64 * KiB, 4} },
 				.block_erase = SPI_BLOCK_ERASE_D8,
 			}, {
-				.eraseblocks = { {256 * 1024, 1} },
+				.eraseblocks = { {256 * KiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_C7,
 			}
 		},
@@ -2170,25 +1613,7 @@
 		.tested		= TEST_OK_PREW,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 1024} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 128} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 64} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {4 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {4 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(4096),
 		.printlock	= SPI_PRETTYPRINT_STATUS_REGISTER_PLAIN, /* TODO: improve */
 		.unlock		= SPI_DISABLE_BLOCKPROTECT,
 		.write		= SPI_CHIP_WRITE256,
@@ -2218,13 +1643,13 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {4 * 1024, 128} },
+				.eraseblocks = { {4 * KiB, 128} },
 				.block_erase = SPI_BLOCK_ERASE_20,
 			}, {
-				.eraseblocks = { {64 * 1024, 8} },
+				.eraseblocks = { {64 * KiB, 8} },
 				.block_erase = SPI_BLOCK_ERASE_D8,
 			}, {
-				.eraseblocks = { {512 * 1024, 1} },
+				.eraseblocks = { {512 * KiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_C7,
 			}
 		},
@@ -2254,25 +1679,7 @@
 		.tested		= TEST_OK_PREW,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 2048} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 256} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 128} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {8 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {8 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(8192),
 		.printlock	= SPI_PRETTYPRINT_STATUS_REGISTER_PLAIN, /* TODO: improve */
 		.unlock		= SPI_DISABLE_BLOCKPROTECT,
 		.write		= SPI_CHIP_WRITE256,
@@ -2302,13 +1709,13 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {4 * 1024, 256} },
+				.eraseblocks = { {4 * KiB, 256} },
 				.block_erase = SPI_BLOCK_ERASE_20,
 			}, {
-				.eraseblocks = { {64 * 1024, 16} },
+				.eraseblocks = { {64 * KiB, 16} },
 				.block_erase = SPI_BLOCK_ERASE_D8,
 			}, {
-				.eraseblocks = { {1024 * 1024, 1} },
+				.eraseblocks = { {1 * MiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_C7,
 			}
 		},
@@ -2332,7 +1739,7 @@
 		.bustype	= BUS_SPI,
 		.manufacture_id	= WINBOND_NEX_ID,
 		.model_id	= WINBOND_NEX_W35T02NW,
-		.total_size	= 256 * 1024,
+		.total_size	= 256 * KiB,
 		.page_size	= 256,
 		/* OTP: 256B total; read 0x48; write 0x42, erase 0x44, read ID 0x4B */
 		.feature_bits	= FEATURE_WRSR_WREN | FEATURE_OTP | FEATURE_4BA_WREN,
@@ -2342,28 +1749,28 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {4 * 1024, 65536} },
+				.eraseblocks = { {4 * KiB, 65536} },
 				.block_erase = SPI_BLOCK_ERASE_21,
 			}, {
-				.eraseblocks = { {4 * 1024, 65536} },
+				.eraseblocks = { {4 * KiB, 65536} },
 				.block_erase = SPI_BLOCK_ERASE_20,
 			}, {
-				.eraseblocks = { {32 * 1024, 8192} },
+				.eraseblocks = { {32 * KiB, 8192} },
 				.block_erase = SPI_BLOCK_ERASE_5C,
 			}, {
-				.eraseblocks = { {32 * 1024, 8192} },
+				.eraseblocks = { {32 * KiB, 8192} },
 				.block_erase = SPI_BLOCK_ERASE_52,
 			}, {
-				.eraseblocks = { {64 * 1024, 4096} },
+				.eraseblocks = { {64 * KiB, 4096} },
 				.block_erase = SPI_BLOCK_ERASE_DC,
 			}, {
-				.eraseblocks = { {64 * 1024, 4096} },
+				.eraseblocks = { {64 * KiB, 4096} },
 				.block_erase = SPI_BLOCK_ERASE_D8,
 			}, {
-				.eraseblocks = { {256 * 1024 * 1024, 1} },
+				.eraseblocks = { {256 * MiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_60,
 			}, {
-				.eraseblocks = { {256 * 1024 * 1024, 1} },
+				.eraseblocks = { {256 * MiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_C7,
 			}
 		},
@@ -2396,7 +1803,7 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {128 * 1024, 1} },
+				.eraseblocks = { {128 * KiB, 1} },
 				.block_erase = JEDEC_CHIP_BLOCK_ERASE,
 			}
 		},
@@ -2419,7 +1826,7 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {128 * 1024, 1} },
+				.eraseblocks = { {128 * KiB, 1} },
 				.block_erase = JEDEC_CHIP_BLOCK_ERASE,
 			}
 		},
@@ -2442,7 +1849,7 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {256 * 1024, 1} },
+				.eraseblocks = { {256 * KiB, 1} },
 				.block_erase = JEDEC_CHIP_BLOCK_ERASE,
 			}
 		},
@@ -2466,7 +1873,7 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {512 * 1024, 1} },
+				.eraseblocks = { {512 * KiB, 1} },
 				.block_erase = JEDEC_CHIP_BLOCK_ERASE,
 			}
 		},
@@ -2490,7 +1897,7 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {64 * 1024, 1} },
+				.eraseblocks = { {64 * KiB, 1} },
 				.block_erase = JEDEC_CHIP_BLOCK_ERASE,
 			}
 		},
@@ -2506,7 +1913,7 @@
 		.manufacture_id	= AMD_ID, /* WTF: "Industry Standard compatible Manufacturer ID code of 01h" */
 		.model_id	= WINBOND_W29GL032CB,
 		.total_size	= 4096,
-		.page_size	= 128 * 1024, /* actual page size is 16 */
+		.page_size	= 128 * KiB, /* actual page size is 16 */
 		.feature_bits	= FEATURE_ADDR_2AA | FEATURE_SHORT_RESET,
 		.tested		= TEST_UNTESTED,
 		.probe		= PROBE_JEDEC_29GL,
@@ -2515,12 +1922,12 @@
 		{
 			{
 				.eraseblocks = {
-					{8 * 1024, 8},
-					{64 * 1024, 63},
+					{8 * KiB, 8},
+					{64 * KiB, 63},
 				},
 				.block_erase = JEDEC_SECTOR_ERASE,
 			}, {
-				.eraseblocks = { {4 * 1024 * 1024, 1} },
+				.eraseblocks = { {4 * MiB, 1} },
 				.block_erase = JEDEC_CHIP_BLOCK_ERASE,
 			},
 		},
@@ -2536,7 +1943,7 @@
 		.manufacture_id	= AMD_ID, /* WTF: "Industry Standard compatible Manufacturer ID code of 01h" */
 		.model_id	= WINBOND_W29GL032CHL,
 		.total_size	= 4096,
-		.page_size	= 128 * 1024, /* actual page size is 16 */
+		.page_size	= 128 * KiB, /* actual page size is 16 */
 		.feature_bits	= FEATURE_ADDR_2AA | FEATURE_SHORT_RESET,
 		.tested		= TEST_UNTESTED,
 		.probe		= PROBE_JEDEC_29GL,
@@ -2544,10 +1951,10 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {64 * 1024, 64} },
+				.eraseblocks = { {64 * KiB, 64} },
 				.block_erase = JEDEC_SECTOR_ERASE,
 			}, {
-				.eraseblocks = { {4 * 1024 * 1024, 1} },
+				.eraseblocks = { {4 * MiB, 1} },
 				.block_erase = JEDEC_CHIP_BLOCK_ERASE,
 			},
 		},
@@ -2563,7 +1970,7 @@
 		.manufacture_id	= AMD_ID, /* WTF: "Industry Standard compatible Manufacturer ID code of 01h" */
 		.model_id	= WINBOND_W29GL032CT,
 		.total_size	= 4096,
-		.page_size	= 128 * 1024, /* actual page size is 16 */
+		.page_size	= 128 * KiB, /* actual page size is 16 */
 		.feature_bits	= FEATURE_ADDR_2AA | FEATURE_SHORT_RESET,
 		.tested		= TEST_UNTESTED,
 		.probe		= PROBE_JEDEC_29GL,
@@ -2572,12 +1979,12 @@
 		{
 			{
 				.eraseblocks = {
-					{64 * 1024, 63},
-					{8 * 1024, 8},
+					{64 * KiB, 63},
+					{8 * KiB, 8},
 				},
 				.block_erase = JEDEC_SECTOR_ERASE,
 			}, {
-				.eraseblocks = { {4 * 1024 * 1024, 1} },
+				.eraseblocks = { {4 * MiB, 1} },
 				.block_erase = JEDEC_CHIP_BLOCK_ERASE,
 			},
 		},
@@ -2593,7 +2000,7 @@
 		.manufacture_id	= AMD_ID, /* WTF: "Industry Standard compatible Manufacturer ID code of 01h" */
 		.model_id	= WINBOND_W29GL064CB,
 		.total_size	= 8192,
-		.page_size	= 128 * 1024, /* actual page size is 16 */
+		.page_size	= 128 * KiB, /* actual page size is 16 */
 		.feature_bits	= FEATURE_ADDR_2AA | FEATURE_SHORT_RESET,
 		.tested		= TEST_UNTESTED,
 		.probe		= PROBE_JEDEC_29GL,
@@ -2602,12 +2009,12 @@
 		{
 			{
 				.eraseblocks = {
-					{8 * 1024, 8},
-					{64 * 1024, 127},
+					{8 * KiB, 8},
+					{64 * KiB, 127},
 				},
 				.block_erase = JEDEC_SECTOR_ERASE,
 			}, {
-				.eraseblocks = { {8 * 1024 * 1024, 1} },
+				.eraseblocks = { {8 * MiB, 1} },
 				.block_erase = JEDEC_CHIP_BLOCK_ERASE,
 			},
 		},
@@ -2623,7 +2030,7 @@
 		.manufacture_id	= AMD_ID, /* WTF: "Industry Standard compatible Manufacturer ID code of 01h" */
 		.model_id	= WINBOND_W29GL064CHL,
 		.total_size	= 8192,
-		.page_size	= 128 * 1024, /* actual page size is 16 */
+		.page_size	= 128 * KiB, /* actual page size is 16 */
 		.feature_bits	= FEATURE_ADDR_2AA | FEATURE_SHORT_RESET,
 		.tested		= TEST_UNTESTED,
 		.probe		= PROBE_JEDEC_29GL,
@@ -2631,10 +2038,10 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {64 * 1024, 128} },
+				.eraseblocks = { {64 * KiB, 128} },
 				.block_erase = JEDEC_SECTOR_ERASE,
 			}, {
-				.eraseblocks = { {8 * 1024 * 1024, 1} },
+				.eraseblocks = { {8 * MiB, 1} },
 				.block_erase = JEDEC_CHIP_BLOCK_ERASE,
 			},
 		},
@@ -2650,7 +2057,7 @@
 		.manufacture_id	= AMD_ID, /* WTF: "Industry Standard compatible Manufacturer ID code of 01h" */
 		.model_id	= WINBOND_W29GL064CT,
 		.total_size	= 8192,
-		.page_size	= 128 * 1024, /* actual page size is 16 */
+		.page_size	= 128 * KiB, /* actual page size is 16 */
 		.feature_bits	= FEATURE_ADDR_2AA | FEATURE_SHORT_RESET,
 		.tested		= TEST_UNTESTED,
 		.probe		= PROBE_JEDEC_29GL,
@@ -2659,12 +2066,12 @@
 		{
 			{
 				.eraseblocks = {
-					{64 * 1024, 127},
-					{8 * 1024, 8},
+					{64 * KiB, 127},
+					{8 * KiB, 8},
 				},
 				.block_erase = JEDEC_SECTOR_ERASE,
 			}, {
-				.eraseblocks = { {8 * 1024 * 1024, 1} },
+				.eraseblocks = { {8 * MiB, 1} },
 				.block_erase = JEDEC_CHIP_BLOCK_ERASE,
 			},
 		},
@@ -2680,7 +2087,7 @@
 		.manufacture_id	= AMD_ID, /* WTF: "Industry Standard compatible Manufacturer ID code of 01h" */
 		.model_id	= WINBOND_W29GL128CHL,
 		.total_size	= 16384,
-		.page_size	= 128 * 1024, /* actual page size is 16 */
+		.page_size	= 128 * KiB, /* actual page size is 16 */
 		.feature_bits	= FEATURE_ADDR_2AA | FEATURE_SHORT_RESET,
 		.tested		= TEST_UNTESTED,
 		.probe		= PROBE_JEDEC_29GL,
@@ -2688,10 +2095,10 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {128 * 1024, 128} },
+				.eraseblocks = { {128 * KiB, 128} },
 				.block_erase = JEDEC_SECTOR_ERASE,
 			}, {
-				.eraseblocks = { {16 * 1024 * 1024, 1} },
+				.eraseblocks = { {16 * MiB, 1} },
 				.block_erase = JEDEC_CHIP_BLOCK_ERASE,
 			},
 		},
@@ -2707,7 +2114,7 @@
 		.manufacture_id	= WINBOND_ID,
 		.model_id	= WINBOND_W39F010,
 		.total_size	= 128,
-		.page_size	= 4 * 1024,
+		.page_size	= 4 * KiB,
 		.feature_bits	= FEATURE_EITHER_RESET,
 		.tested		= TEST_OK_PREW,
 		.probe		= PROBE_JEDEC,
@@ -2715,10 +2122,10 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {4 * 1024, 32} },
+				.eraseblocks = { {4 * KiB, 32} },
 				.block_erase = JEDEC_BLOCK_ERASE,
 			}, {
-				.eraseblocks = { {128 * 1024, 1} },
+				.eraseblocks = { {128 * KiB, 1} },
 				.block_erase = JEDEC_CHIP_BLOCK_ERASE,
 			}
 		},
@@ -2735,7 +2142,7 @@
 		.manufacture_id	= WINBOND_ID,
 		.model_id	= WINBOND_W39L010,
 		.total_size	= 128,
-		.page_size	= 4 * 1024,
+		.page_size	= 4 * KiB,
 		.feature_bits	= FEATURE_EITHER_RESET,
 		.tested		= TEST_UNTESTED,
 		.probe		= PROBE_JEDEC,
@@ -2743,10 +2150,10 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {4 * 1024, 32} },
+				.eraseblocks = { {4 * KiB, 32} },
 				.block_erase = JEDEC_BLOCK_ERASE,
 			}, {
-				.eraseblocks = { {128 * 1024, 1} },
+				.eraseblocks = { {128 * KiB, 1} },
 				.block_erase = JEDEC_CHIP_BLOCK_ERASE,
 			}
 		},
@@ -2763,7 +2170,7 @@
 		.manufacture_id	= WINBOND_ID,
 		.model_id	= WINBOND_W39L020,
 		.total_size	= 256,
-		.page_size	= 4 * 1024,
+		.page_size	= 4 * KiB,
 		.feature_bits	= FEATURE_EITHER_RESET,
 		.tested		= TEST_UNTESTED,
 		.probe		= PROBE_JEDEC,
@@ -2771,13 +2178,13 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {4 * 1024, 64} },
+				.eraseblocks = { {4 * KiB, 64} },
 				.block_erase = JEDEC_BLOCK_ERASE,
 			}, {
-				.eraseblocks = { {64 * 1024, 4} },
+				.eraseblocks = { {64 * KiB, 4} },
 				.block_erase = JEDEC_SECTOR_ERASE,
 			}, {
-				.eraseblocks = { {256 * 1024, 1} },
+				.eraseblocks = { {256 * KiB, 1} },
 				.block_erase = JEDEC_CHIP_BLOCK_ERASE,
 			}
 		},
@@ -2794,7 +2201,7 @@
 		.manufacture_id	= WINBOND_ID,
 		.model_id	= WINBOND_W39L040,
 		.total_size	= 512,
-		.page_size	= 64 * 1024,
+		.page_size	= 64 * KiB,
 		.feature_bits	= FEATURE_EITHER_RESET,
 		.tested		= TEST_OK_PR,
 		.probe		= PROBE_JEDEC,
@@ -2802,13 +2209,13 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {4 * 1024, 128} },
+				.eraseblocks = { {4 * KiB, 128} },
 				.block_erase = JEDEC_BLOCK_ERASE,
 			}, {
-				.eraseblocks = { {64 * 1024, 8} },
+				.eraseblocks = { {64 * KiB, 8} },
 				.block_erase = JEDEC_SECTOR_ERASE,
 			}, {
-				.eraseblocks = { {512 * 1024, 1} },
+				.eraseblocks = { {512 * KiB, 1} },
 				.block_erase = JEDEC_CHIP_BLOCK_ERASE,
 			}
 		},
@@ -2825,7 +2232,7 @@
 		.manufacture_id	= WINBOND_ID,
 		.model_id	= WINBOND_W39V040A,
 		.total_size	= 512,
-		.page_size	= 64 * 1024,
+		.page_size	= 64 * KiB,
 		.feature_bits	= FEATURE_EITHER_RESET,
 		.tested		= TEST_OK_PREW,
 		.probe		= PROBE_JEDEC,
@@ -2833,10 +2240,10 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {64 * 1024, 8} },
+				.eraseblocks = { {64 * KiB, 8} },
 				.block_erase = JEDEC_SECTOR_ERASE,
 			}, {
-				.eraseblocks = { {512 * 1024, 1} },
+				.eraseblocks = { {512 * KiB, 1} },
 				.block_erase = JEDEC_CHIP_BLOCK_ERASE,
 			}
 		},
@@ -2853,7 +2260,7 @@
 		.manufacture_id	= WINBOND_ID,
 		.model_id	= WINBOND_W39V040B,
 		.total_size	= 512,
-		.page_size	= 64 * 1024,
+		.page_size	= 64 * KiB,
 		.feature_bits	= FEATURE_EITHER_RESET,
 		.tested		= TEST_OK_PREW,
 		.probe		= PROBE_JEDEC,
@@ -2861,10 +2268,10 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {64 * 1024, 8} },
+				.eraseblocks = { {64 * KiB, 8} },
 				.block_erase = JEDEC_SECTOR_ERASE,
 			}, {
-				.eraseblocks = { {512 * 1024, 1} },
+				.eraseblocks = { {512 * KiB, 1} },
 				.block_erase = JEDEC_CHIP_BLOCK_ERASE,
 			}
 		},
@@ -2881,7 +2288,7 @@
 		.manufacture_id	= WINBOND_ID,
 		.model_id	= WINBOND_W39V040C,
 		.total_size	= 512,
-		.page_size	= 64 * 1024,
+		.page_size	= 64 * KiB,
 		.feature_bits	= FEATURE_EITHER_RESET,
 		.tested		= TEST_OK_PREW,
 		.probe		= PROBE_JEDEC,
@@ -2889,10 +2296,10 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {64 * 1024, 8} },
+				.eraseblocks = { {64 * KiB, 8} },
 				.block_erase = JEDEC_SECTOR_ERASE,
 			}, {
-				.eraseblocks = { {512 * 1024, 1} },
+				.eraseblocks = { {512 * KiB, 1} },
 				.block_erase = JEDEC_CHIP_BLOCK_ERASE,
 			}
 		},
@@ -2909,7 +2316,7 @@
 		.manufacture_id	= WINBOND_ID,
 		.model_id	= WINBOND_W39V040FA,
 		.total_size	= 512,
-		.page_size	= 64 * 1024,
+		.page_size	= 64 * KiB,
 		.feature_bits	= FEATURE_REGISTERMAP | FEATURE_EITHER_RESET,
 		.tested		= TEST_OK_PREW,
 		.probe		= PROBE_JEDEC,
@@ -2917,13 +2324,13 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {4 * 1024, 128} },
+				.eraseblocks = { {4 * KiB, 128} },
 				.block_erase = JEDEC_BLOCK_ERASE,
 			}, {
-				.eraseblocks = { {64 * 1024, 8} },
+				.eraseblocks = { {64 * KiB, 8} },
 				.block_erase = JEDEC_SECTOR_ERASE,
 			}, {
-				.eraseblocks = { {512 * 1024, 1} },
+				.eraseblocks = { {512 * KiB, 1} },
 				.block_erase = JEDEC_CHIP_BLOCK_ERASE,
 			}
 		},
@@ -2941,7 +2348,7 @@
 		.manufacture_id	= WINBOND_ID,
 		.model_id	= WINBOND_W39V040B,
 		.total_size	= 512,
-		.page_size	= 64 * 1024,
+		.page_size	= 64 * KiB,
 		.feature_bits	= FEATURE_REGISTERMAP | FEATURE_EITHER_RESET,
 		.tested		= TEST_OK_PREW,
 		.probe		= PROBE_JEDEC,
@@ -2949,10 +2356,10 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {64 * 1024, 8} },
+				.eraseblocks = { {64 * KiB, 8} },
 				.block_erase = JEDEC_SECTOR_ERASE,
 			}, {
-				.eraseblocks = { {512 * 1024, 1} },
+				.eraseblocks = { {512 * KiB, 1} },
 				.block_erase = JEDEC_CHIP_BLOCK_ERASE,
 			}
 		},
@@ -2970,7 +2377,7 @@
 		.manufacture_id	= WINBOND_ID,
 		.model_id	= WINBOND_W39V040C,
 		.total_size	= 512,
-		.page_size	= 64 * 1024,
+		.page_size	= 64 * KiB,
 		.feature_bits	= FEATURE_REGISTERMAP | FEATURE_EITHER_RESET,
 		.tested		= TEST_OK_PREW,
 		.probe		= PROBE_JEDEC,
@@ -2978,10 +2385,10 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {64 * 1024, 8} },
+				.eraseblocks = { {64 * KiB, 8} },
 				.block_erase = JEDEC_SECTOR_ERASE,
 			}, {
-				.eraseblocks = { {512 * 1024, 1} },
+				.eraseblocks = { {512 * KiB, 1} },
 				.block_erase = JEDEC_CHIP_BLOCK_ERASE,
 			}
 		},
@@ -2998,7 +2405,7 @@
 		.manufacture_id	= WINBOND_ID,
 		.model_id	= WINBOND_W39V080A,
 		.total_size	= 1024,
-		.page_size	= 64 * 1024,
+		.page_size	= 64 * KiB,
 		.feature_bits	= FEATURE_EITHER_RESET,
 		.tested		= TEST_OK_PREW,
 		.probe		= PROBE_JEDEC,
@@ -3006,10 +2413,10 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {64 * 1024, 16} },
+				.eraseblocks = { {64 * KiB, 16} },
 				.block_erase = JEDEC_SECTOR_ERASE,
 			}, {
-				.eraseblocks = { {1024 * 1024, 1} },
+				.eraseblocks = { {1 * MiB, 1} },
 				.block_erase = JEDEC_CHIP_BLOCK_ERASE,
 			}
 		},
@@ -3026,7 +2433,7 @@
 		.manufacture_id	= WINBOND_ID,
 		.model_id	= WINBOND_W39V080FA,
 		.total_size	= 1024,
-		.page_size	= 64 * 1024,
+		.page_size	= 64 * KiB,
 		.feature_bits	= FEATURE_REGISTERMAP | FEATURE_EITHER_RESET,
 		.tested		= TEST_OK_PREW,
 		.probe		= PROBE_JEDEC,
@@ -3034,10 +2441,10 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {64 * 1024, 16} },
+				.eraseblocks = { {64 * KiB, 16} },
 				.block_erase = JEDEC_SECTOR_ERASE,
 			}, {
-				.eraseblocks = { {1024 * 1024, 1} },
+				.eraseblocks = { {1 * MiB, 1} },
 				.block_erase = JEDEC_CHIP_BLOCK_ERASE,
 			}
 		},
@@ -3055,7 +2462,7 @@
 		.manufacture_id	= WINBOND_ID,
 		.model_id	= WINBOND_W39V080FA_DM,
 		.total_size	= 512,
-		.page_size	= 64 * 1024,
+		.page_size	= 64 * KiB,
 		.feature_bits	= FEATURE_REGISTERMAP | FEATURE_EITHER_RESET,
 		.tested		= TEST_UNTESTED,
 		.probe		= PROBE_JEDEC,
@@ -3063,10 +2470,10 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {64 * 1024, 8} },
+				.eraseblocks = { {64 * KiB, 8} },
 				.block_erase = JEDEC_SECTOR_ERASE,
 			}, {
-				.eraseblocks = { {512 * 1024, 1} },
+				.eraseblocks = { {512 * KiB, 1} },
 				.block_erase = JEDEC_CHIP_BLOCK_ERASE,
 			}
 		},
@@ -3092,14 +2499,14 @@
 		{
 			{
 				.eraseblocks = {
-					{128 * 1024, 1},
-					{96 * 1024, 1},
-					{8 * 1024, 2},
-					{16 * 1024, 1},
+					{128 * KiB, 1},
+					{96 * KiB, 1},
+					{8 * KiB, 2},
+					{16 * KiB, 1},
 				},
 				.block_erase = JEDEC_SECTOR_ERASE,
 			}, {
-				.eraseblocks = { {256 * 1024, 1} },
+				.eraseblocks = { {256 * KiB, 1} },
 				.block_erase = JEDEC_CHIP_BLOCK_ERASE,
 			}
 		},
@@ -3123,7 +2530,7 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {256 * 1024, 1} },
+				.eraseblocks = { {256 * KiB, 1} },
 				.block_erase = JEDEC_CHIP_BLOCK_ERASE,
 			}
 		},
@@ -3148,14 +2555,14 @@
 		{
 			{
 				.eraseblocks = {
-					{64 * 1024, 3},
-					{32 * 1024, 1},
-					{8 * 1024, 2},
-					{16 * 1024, 1},
+					{64 * KiB, 3},
+					{32 * KiB, 1},
+					{8 * KiB, 2},
+					{16 * KiB, 1},
 				},
 				.block_erase = JEDEC_SECTOR_ERASE,
 			}, {
-				.eraseblocks = { {256 * 1024, 1} },
+				.eraseblocks = { {256 * KiB, 1} },
 				.block_erase = JEDEC_CHIP_BLOCK_ERASE,
 			}
 		},
@@ -3180,14 +2587,14 @@
 		{
 			{
 				.eraseblocks = {
-					{64 * 1024, 3},
-					{32 * 1024, 1},
-					{8 * 1024, 2},
-					{16 * 1024, 1},
+					{64 * KiB, 3},
+					{32 * KiB, 1},
+					{8 * KiB, 2},
+					{16 * KiB, 1},
 				},
 				.block_erase = JEDEC_SECTOR_ERASE,
 			}, {
-				.eraseblocks = { {256 * 1024, 1} },
+				.eraseblocks = { {256 * KiB, 1} },
 				.block_erase = JEDEC_CHIP_BLOCK_ERASE,
 			}
 		},
@@ -3209,25 +2616,7 @@
 		.tested 	= TEST_OK_PREW,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 512} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 64} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 32} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {2 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {2 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(2048),
 		.write		= SPI_CHIP_WRITE256,
 		.read		= SPI_CHIP_READ,
 		.voltage	= {1700, 1950},
@@ -3246,25 +2635,7 @@
 		.tested		= TEST_OK_PREW,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 1024} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 128} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 64} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {4 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {4 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(4096),
 		.write		= SPI_CHIP_WRITE256,
 		.read		= SPI_CHIP_READ,
 		.voltage	= {1700, 1950},
@@ -3284,25 +2655,7 @@
 		.tested 	= TEST_OK_PREW,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 2048} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 256} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 128} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {8 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {8 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(8192),
 		.write		= SPI_CHIP_WRITE256,
 		.read		= SPI_CHIP_READ,
 		.voltage	= {2700, 3600},
@@ -3322,25 +2675,7 @@
 		.tested 	= TEST_OK_PREW,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 4096} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 512} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 256} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {16 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {16 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(16384),
 		.write		= SPI_CHIP_WRITE256,
 		.read		= SPI_CHIP_READ,
 		.voltage	= {2700, 3600},
@@ -3360,25 +2695,7 @@
 		.tested 	= TEST_OK_PREW,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 2048} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 256} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 128} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {8 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {8 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(8192),
 		.write		= SPI_CHIP_WRITE256,
 		.read		= SPI_CHIP_READ,
 		.voltage	= {1700, 1950},
@@ -3398,25 +2715,7 @@
 		.tested 	= TEST_OK_PREW,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 4096} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 512} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 256} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {16 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {16 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(16384),
 		.write		= SPI_CHIP_WRITE256,
 		.read		= SPI_CHIP_READ,
 		.voltage	= {1700, 1950},
@@ -3428,31 +2727,13 @@
 		.bustype	= BUS_SPI,
 		.manufacture_id = WINBOND_NEX_ID,
 		.model_id	= WINBOND_NEX_W77Q25NWS,
-		.total_size	= 32 * 1024,
+		.total_size	= 32 * KiB,
 		.page_size	= 256,
 		.feature_bits	= FEATURE_WRSR_WREN | FEATURE_QPI | FEATURE_4BA,
 		.tested 	= {.probe = OK, .read = OK, .erase = OK, .write = OK, .wp = NA},
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 8192} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 1024} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 512} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {32 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {32 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(32 * KiB),
 		.write		= SPI_CHIP_WRITE256,
 		.read		= SPI_CHIP_READ,
 		.voltage	= {1700, 1950},
@@ -3464,7 +2745,7 @@
 		.bustype	= BUS_SPI,
 		.manufacture_id = WINBOND_NEX_ID,
 		.model_id	= WINBOND_NEX_W77Q51NWD,
-		.total_size	= 64 * 1024,
+		.total_size	= 64 * KiB,
 		.page_size	= 256,
 		.feature_bits	= FEATURE_WRSR_WREN | FEATURE_QPI | FEATURE_4BA,
 		.tested 	= {.probe = OK, .read = OK, .erase = OK, .write = OK, .wp = NA},
@@ -3473,19 +2754,19 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {4 * 1024, 16384} },
+				.eraseblocks = { {4 * KiB, 16384} },
 				.block_erase = SPI_BLOCK_ERASE_20,
 			}, {
-				.eraseblocks = { {32 * 1024, 2048} },
+				.eraseblocks = { {32 * KiB, 2048} },
 				.block_erase = SPI_BLOCK_ERASE_52,
 			}, {
-				.eraseblocks = { {64 * 1024, 1024} },
+				.eraseblocks = { {64 * KiB, 1024} },
 				.block_erase = SPI_BLOCK_ERASE_D8,
 			}/*FIXME: opcode is supported but check for each die is required, {
-				.eraseblocks = { {32 * 1024 * 1024, 1} },
+				.eraseblocks = { {32 * MiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_60,
 			}, {
-				.eraseblocks = { {32 * 1024 * 1024, 1} },
+				.eraseblocks = { {32 * MiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_C7,
 			}*/
 		},
@@ -3500,7 +2781,7 @@
 		.bustype	= BUS_SPI,
 		.manufacture_id = WINBOND_NEX_ID,
 		.model_id	= WINBOND_NEX_W77Q01NWQ,
-		.total_size	= 128 * 1024,
+		.total_size	= 128 * KiB,
 		.page_size	= 256,
 		.feature_bits	= FEATURE_WRSR_WREN | FEATURE_QPI | FEATURE_4BA,
 		.tested 	= TEST_UNTESTED,
@@ -3509,19 +2790,19 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {4 * 1024, 32768} },
+				.eraseblocks = { {4 * KiB, 32768} },
 				.block_erase = SPI_BLOCK_ERASE_20,
 			}, {
-				.eraseblocks = { {32 * 1024, 4096} },
+				.eraseblocks = { {32 * KiB, 4096} },
 				.block_erase = SPI_BLOCK_ERASE_52,
 			}, {
-				.eraseblocks = { {64 * 1024, 2048} },
+				.eraseblocks = { {64 * KiB, 2048} },
 				.block_erase = SPI_BLOCK_ERASE_D8,
 			}/*FIXME: opcode is supported but check for each die is required, {
-				.eraseblocks = { {32 * 1024 * 1024, 1} },
+				.eraseblocks = { {32 * MiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_60,
 			}, {
-				.eraseblocks = { {32 * 1024 * 1024, 1} },
+				.eraseblocks = { {32 * MiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_C7,
 			}*/
 		},
@@ -3536,31 +2817,13 @@
 		.bustype	= BUS_SPI,
 		.manufacture_id = WINBOND_NEX_ID,
 		.model_id	= WINBOND_NEX_W77T25NWS,
-		.total_size	= 32 * 1024,
+		.total_size	= 32 * KiB,
 		.page_size	= 256,
 		.feature_bits	= FEATURE_WRSR_WREN | FEATURE_QPI | FEATURE_4BA,
 		.tested 	= TEST_UNTESTED,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 8192} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 1024} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 512} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {32 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {32 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(32 * KiB),
 		.write		= SPI_CHIP_WRITE256,
 		.read		= SPI_CHIP_READ,
 		.voltage	= {1700, 1950},
@@ -3572,7 +2835,7 @@
 		.bustype	= BUS_SPI,
 		.manufacture_id = WINBOND_NEX_ID,
 		.model_id	= WINBOND_NEX_W77T51NWD,
-		.total_size	= 64 * 1024,
+		.total_size	= 64 * KiB,
 		.page_size	= 256,
 		.feature_bits	= FEATURE_WRSR_WREN | FEATURE_QPI | FEATURE_4BA,
 		.tested 	= TEST_UNTESTED,
@@ -3581,19 +2844,19 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {4 * 1024, 16384} },
+				.eraseblocks = { {4 * KiB, 16384} },
 				.block_erase = SPI_BLOCK_ERASE_20,
 			}, {
-				.eraseblocks = { {32 * 1024, 2048} },
+				.eraseblocks = { {32 * KiB, 2048} },
 				.block_erase = SPI_BLOCK_ERASE_52,
 			}, {
-				.eraseblocks = { {64 * 1024, 1024} },
+				.eraseblocks = { {64 * KiB, 1024} },
 				.block_erase = SPI_BLOCK_ERASE_D8,
 			}/*FIXME: opcode is supported but check for each die is required, {
-				.eraseblocks = { {32 * 1024 * 1024, 1} },
+				.eraseblocks = { {32 * MiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_60,
 			}, {
-				.eraseblocks = { {32 * 1024 * 1024, 1} },
+				.eraseblocks = { {32 * MiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_C7,
 			}*/
 		},
@@ -3608,7 +2871,7 @@
 		.bustype	= BUS_SPI,
 		.manufacture_id = WINBOND_NEX_ID,
 		.model_id	= WINBOND_NEX_W77T01NWQ,
-		.total_size	= 128 * 1024,
+		.total_size	= 128 * KiB,
 		.page_size	= 256,
 		.feature_bits	= FEATURE_WRSR_WREN | FEATURE_QPI | FEATURE_4BA,
 		.tested 	= TEST_UNTESTED,
@@ -3617,19 +2880,19 @@
 		.block_erasers	=
 		{
 			{
-				.eraseblocks = { {4 * 1024, 32768} },
+				.eraseblocks = { {4 * KiB, 32768} },
 				.block_erase = SPI_BLOCK_ERASE_20,
 			}, {
-				.eraseblocks = { {32 * 1024, 4096} },
+				.eraseblocks = { {32 * KiB, 4096} },
 				.block_erase = SPI_BLOCK_ERASE_52,
 			}, {
-				.eraseblocks = { {64 * 1024, 2048} },
+				.eraseblocks = { {64 * KiB, 2048} },
 				.block_erase = SPI_BLOCK_ERASE_D8,
 			}/*FIXME: opcode is supported but check for each die is required, {
-				.eraseblocks = { {32 * 1024 * 1024, 1} },
+				.eraseblocks = { {32 * MiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_60,
 			}, {
-				.eraseblocks = { {32 * 1024 * 1024, 1} },
+				.eraseblocks = { {32 * MiB, 1} },
 				.block_erase = SPI_BLOCK_ERASE_C7,
 			}*/
 		},
@@ -3650,25 +2913,7 @@
 		.tested 	= {.probe = OK, .read = OK, .erase = OK, .write = OK, .wp = NA},
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 2048} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 256} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 128} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {8 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {8 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(8192),
 		.write		= SPI_CHIP_WRITE256,
 		.read		= SPI_CHIP_READ,
 		.voltage	= {1700, 1950},
@@ -3687,25 +2932,7 @@
 		.tested 	= {.probe = OK, .read = OK, .erase = OK, .write = OK, .wp = NA},
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 4096} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 512} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 256} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {16 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {16 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(16384),
 		.write		= SPI_CHIP_WRITE256,
 		.read		= SPI_CHIP_READ,
 		.die_select	= SPI_DIESELECT_C2,
@@ -3724,25 +2951,7 @@
 		.tested 	= TEST_UNTESTED,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 2048} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 256} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 128} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {8 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {8 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(8192),
 		.write		= SPI_CHIP_WRITE256,
 		.read		= SPI_CHIP_READ,
 		.voltage	= {1700, 1950},
@@ -3761,25 +2970,7 @@
 		.tested 	= TEST_UNTESTED,
 		.probe		= PROBE_SPI_RDID,
 		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 4096} },
-				.block_erase = SPI_BLOCK_ERASE_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 512} },
-				.block_erase = SPI_BLOCK_ERASE_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 256} },
-				.block_erase = SPI_BLOCK_ERASE_D8,
-			}, {
-				.eraseblocks = { {16 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_60,
-			}, {
-				.eraseblocks = { {16 * 1024 * 1024, 1} },
-				.block_erase = SPI_BLOCK_ERASE_C7,
-			}
-		},
+		.block_erasers	= SPI_ERASERS_20_52_D8_60_C7(16384),
 		.write		= SPI_CHIP_WRITE256,
 		.read		= SPI_CHIP_READ,
 		.die_select	= SPI_DIESELECT_C2,

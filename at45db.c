@@ -15,10 +15,10 @@
 #include "log.h"
 
 /* Status register bits */
-#define AT45DB_READY	(1<<7)
-#define AT45DB_CMP	(1<<6)
-#define AT45DB_PROT	(1<<1)
-#define AT45DB_POWEROF2	(1<<0)
+#define AT45DB_READY	BIT(7)
+#define AT45DB_CMP	BIT(6)
+#define AT45DB_PROT	BIT(1)
+#define AT45DB_POWEROF2	BIT(0)
 
 /* Opcodes */
 #define AT45DB_STATUS 0xD7 /* NB: this is a block erase command on most other chips(!). */
@@ -254,7 +254,7 @@ int probe_spi_at45db(struct flashctx *flash)
 		return 0;
 	}
 
-	msg_cdbg2("%s: total size %i kB, page size %i B\n", __func__, chip->total_size * KiB, chip->page_size);
+	msg_cdbg2("%s: total size %i kB, page size %i B\n", __func__, chip->total_size, chip->page_size);
 
 	return 1;
 }
