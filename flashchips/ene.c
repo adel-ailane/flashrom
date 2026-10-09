@@ -31,3 +31,27 @@
 		.voltage	= {2700, 3600},
 		.gran		= WRITE_GRAN_128BYTES,
 	},
+
+	{
+		.vendor		= "ENE",
+		.name		= "KB9542 (EDI)",
+		.bustype	= BUS_SPI,
+		.total_size	= 160,
+		.page_size	= 128,
+		.feature_bits	= FEATURE_ERASED_ZERO,
+		.tested		= TEST_UNTESTED,
+		.spi_cmd_set	= SPI_EDI,
+		.probe		= PROBE_EDI_KB9542,
+		.probe_timing	= TIMING_ZERO,
+		.block_erasers	=
+		{
+			{
+				.eraseblocks = { {128, 1280} },
+				.block_erase = EDI_CHIP_BLOCK_ERASE,
+			},
+		},
+		.write		= EDI_CHIP_WRITE,
+		.read		= EDI_CHIP_READ,
+		.voltage	= {2700, 3600},
+		.gran		= WRITE_GRAN_128BYTES,
+	},

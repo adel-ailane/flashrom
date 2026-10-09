@@ -22,6 +22,11 @@
 #define ENE_XBI_EFCMD_PROGRAM		0x70
 #define ENE_XBI_EFCMD_HVPL_CLEAR	0x80
 
+#define ENE_EC_WDTCFG			0xfe80
+
+/* Writing this value to WDTCFG disables the watchdog timer. */
+#define ENE_EC_WDTCFG_DISABLE		0x48
+
 #define ENE_EC_PXCFG			0xff14
 
 #define ENE_EC_PXCFG_8051_RESET		0x01
@@ -31,6 +36,9 @@
 
 #define ENE_KB9012_HWVERSION		0xc3
 #define ENE_KB9012_EDIID		0x04
+
+#define ENE_KB9542_HWVERSION		0xf0
+#define ENE_KB9542_EDIID		0x07
 
 struct ene_chip {
 	unsigned char hwversion;
