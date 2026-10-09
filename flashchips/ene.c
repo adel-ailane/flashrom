@@ -39,7 +39,7 @@
 		.total_size	= 160,
 		.page_size	= 128,
 		.feature_bits	= FEATURE_ERASED_ZERO,
-		.tested		= TEST_UNTESTED,
+		.tested		= TEST_OK_PREW,
 		.spi_cmd_set	= SPI_EDI,
 		.probe		= PROBE_EDI_KB9542,
 		.probe_timing	= TIMING_ZERO,
