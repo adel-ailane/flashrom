@@ -19,9 +19,9 @@ static const struct ene_chip ene_kb9012 = {
 	.ediid = ENE_KB9012_EDIID,
 };
 
-static const struct ene_chip ene_kb9542 = {
-	.hwversion = ENE_KB9542_HWVERSION,
-	.ediid = ENE_KB9542_EDIID,
+static const struct ene_chip ene_kb9542gf = {
+	.hwversion = ENE_KB9542GF_HWVERSION,
+	.ediid = ENE_KB9542GF_EDIID,
 };
 
 static void edi_write_cmd(unsigned char *cmd, unsigned short address, unsigned char data)
@@ -584,7 +584,7 @@ static int edi_shutdown_retry(void *data)
 	return -1;
 }
 
-int edi_probe_kb9542(struct flashctx *flash)
+int edi_probe_kb9542gf(struct flashctx *flash)
 {
 	unsigned int tries;
 	unsigned char hwversion;
@@ -600,7 +600,7 @@ int edi_probe_kb9542(struct flashctx *flash)
 		/* Dummy read to draw the chip's attention, see edi_probe_kb9012(). */
 		edi_read(flash, ENE_EC_HWVERSION, &hwversion);
 
-		if (edi_chip_probe(flash, &ene_kb9542))
+		if (edi_chip_probe(flash, &ene_kb9542gf))
 			break;
 
 		programmer_delay(flash, EDI_SESSION_RETRY_DELAY_US);
